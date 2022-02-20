@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@300;400;500;600;700&family=M+PLUS+1p&family=Poppins:ital,wght@0,300;0,500;1,300;1,400&family=Questrial&family=Roboto+Mono:wght@200&family=Roboto:ital,wght@0,400;0,700;1,400;1,500&family=Space+Mono:ital,wght@0,700;1,400;1,700&family=Ubuntu:wght@400;500;700&display=swap');
+*{
+      top: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'poppins', sans-serif;
+}
+body{
+      /* background-color: rgb(65, 65, 238); */
+      background-image: url(img/magic-light-background-shining-background-vector-20314381.jpg) ;
+}
+.first-btn,
+.questions{
+      position:absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50% , -50%);
+}
+.first-btn  button{
+      color: rgb(97, 195, 252);
+      background-color: white;
+      font-size: 25px;
+      padding: 15px 30px;
+      border-radius: 5px;
+      box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.356);
+      cursor: pointer;
+      transition: all 0.3s ease;
+}
+
+.first-btn button:hover{
+      color: white;
+      background: rgb(4, 4, 109);
+}
+
+.general-rols{
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50% ,-50%) scale(0.9);
+      position: absolute;
+      width: 400px;
+      top:50%;
+      left: 50%;
+      background-color: white;
+      transform: translate(-50% , -50%);
+      border-radius: 5px;
+      box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.575);
+}
+.general-rols.activegeneral,
+.result.activeresult{
+      z-index: 5;
+      opacity: 1;
+      pointer-events:auto;
+      transform: translate(-50% ,-50%) scale(1);
+
+}
+.general-rols .title
+{
+      height: 60px;
+      width: 100%;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      border-bottom: 1px solid lightgrey;
+      padding:0 30px ;
+      display: flex;
+      align-items: center;
+}
+.info-rols{
+      margin-bottom: 10px;
+      line-height: 1.8;
+      padding: 0 10px;
+}
+.info-rols .info span{
+      font-weight: 600;
+      color: rgb(58, 116, 202);
+}
+.button{
+      height: 60px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0 35px;
+      border-top: 1px solid lightgrey;
+}
+.button button {
+      background-color: rgb(243, 24, 232);
+      border:1px solid transparent;
+      width:100px;
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 5px;
+      color: white;
+      font-weight: 400;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+}
+.button button:hover{
+      color: rgb(243, 24, 232);
+      background-color: white;
+      border: 2px solid rgb(65, 65, 238);
+}
+
+.button button.btn-exist{
+      border: 1px solid rgb(65, 65, 238);
+      color: white;
+}
+.button button.next_que
+{
+      display: none;
+      color: white;
+      background: rgb(65, 65, 238);
+      
+}
+.button button.btn-exist:hover{
+      color: white;
+      background-color: rgb(65, 65, 238);
+}
+.button button.next_que:hover{
+      background-color: rgb(32, 32, 145);
+}
+.questions{
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50% ,-50%) scale(0.9);
+      width: 550px;
+      background-color: white;
+      border-radius: 5px;
+      padding: 0 10px;
+      box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.575);
+}
+.questions.activequestion{
+      z-index: 5;
+      opacity: 1;
+      pointer-events:auto;
+      transform: translate(-50% ,-50%) scale(1);
+}
+.questions header{
+      display: flex;
+      padding: 0 30px;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      background-color: white;
+      border-radius: 5px 5px 0 0;
+      box-shadow: 0px 1px 1px 5px rgba(0, 0, 0, 0.2);
+      margin-bottom: 5px;
+}
+.questions .title{
+      font-size: 20px;
+      font-weight: 500;
+}
+.questions .time-text{
+      background-color: rgb(75, 139, 235);
+      align-items: center;
+      justify-content: space-between;
+      width:145px;
+      height: 60px;
+      padding: 0 10px;
+      border-radius: 5px;
+      border: 1px solid rgb(114, 114, 245);
+}
+.questions header .time-text .seconds{
+      font-size: 18px;
+      font-weight: 400;
+      background-color: #000;
+      color: white;
+      text-align: center;
+      user-select: none;
+      height: 25px;
+      width:45px;
+      border-radius: 5px;
+}
+.questions .time_line{
+      position: absolute;
+      width: 50%;
+      left: 0px;
+      bottom: 0px;
+      top:70px;
+      height: 6px;
+      background:rgb(114, 114, 245);
+
+}
+.question-list .option{
+      display: flex;
+      margin-top: 20px;
+      background-color: aliceblue;
+      border: 1px solid rgb(0, 140, 255);
+      text-align: start;
+      height: 50px;
+      padding: 0 15px;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+}
+
+.questions .option .icon-fals{
+      color: red;
+      border: 1px solid red;
+      background: rgb(250, 141, 141);
+      width:25px;
+      height: 25px;
+      border-radius: 50%;
+      text-align: center;
+      height: auto;
+      
+}
+.questions .option .icon-true{
+      color: green;
+      border: 1px solid green;
+      background: rgb(81, 245, 81);
+      width:25px;
+      height: 25px;
+      border-radius: 50%;
+      text-align: center;
+      height: auto;
+      pointer-events: none; 
+}
+.questions .option:hover{
+      background-color: rgb(0, 140, 255);
+}
+.questions footer{
+      display: flex;
+      padding: 0 30px;
+      align-items: center;
+      justify-content: space-between;
+      height: 50px;
+      background-color: white;
+      margin-bottom: 5px;
+      /**here****/
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50% ,-50%) scale(0.9);
+}
+.questions footer .text span{
+      display: flex;
+      user-select: none;
+}
+.questions footer .next-btn button{
+      border:1px solid transparent;
+      background: rgb(0, 140, 255);
+      font-weight: 400;
+      width:150px;
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 5px;
+      color: white;
+      font-weight: 300;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+}
+.questions footer .next-btn button:hover{
+      background-color: rgb(65, 65, 238);
+}
+.question-list .option.correct{
+      color: rgb(1, 97, 1);
+      border: 1px solid green;
+      background: rgb(81, 245, 81);
+}
+.question-list .option.incorrect{
+      color: rgb(199, 2, 2);
+      border: 1px solid red;
+      background: rgb(250, 141, 141);
+
+}
+.option.disabled{
+      pointer-events: none;
+}
+
+.result{
+      padding: 15px 20px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      position: absolute;
+      width: 400px;
+      top:50%;
+      left: 50%;
+      background-color: white;
+      transform: translate(-50% , -50%);
+      border-radius: 5px;
+      box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.575);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50% ,-50%) scale(0.9);
+}
+.result .next-btn .btn-start{
+      border-radius: 5px;
+      background-color: rgb(75, 139, 235);
+      color: white;
+      font-size: 16px;
+      font-weight: 400;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      
+      transition: all 0.3s ease;
+      cursor: pointer;
+}
+.result .next-btn .btn-start:hover{
+      background-color: rgb(65, 65, 238);
+}
+.result .next-btn  .btn-exist{
+      margin-left: 10px;
+      border-radius: 5px;
+      background-color: aliceblue;
+      border: 2px solid rgb(65, 65, 238);
+      color: rgb(75, 139, 235);
+      font-size: 16px;
+      font-weight: 400;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+}
+.result .next-btn  .btn-exist:hover{
+      color: white;
+      background-color: rgb(58, 116, 202);
+}
+.result .icon{
+      color: gold;
+      font-size: 50px;
+}
